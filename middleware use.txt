@@ -1,0 +1,13 @@
+
+default middleware call
+  json data ->
+  app.use(express.json())
+
+
+middleware -> admin login & admin register use hoy
+
+// example 
+
+app.get('/', middleware ,(req,res)=>{
+    res.send("Blog server running)
+})
