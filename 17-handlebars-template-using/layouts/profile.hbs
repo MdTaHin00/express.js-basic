@@ -1,0 +1,27 @@
+{{!-- start tag  & tag name layout--}}
+{{#> layout }}
+
+<h1>User Profile</h1>
+{{!-- dynamic value call -> name --}}
+<p>Name : {{name}}</p>
+<p>Email : {{email}}</p>
+<p>Age : {{age}}</p>
+
+  {{!-- admin status --}}
+  {{#if isAdmin}} {{!--* if start --}}
+  <p>Status : <strong>Admin</strong></p>
+  {{else}}
+   <p>Status : <strong>Regular User</strong></p>
+  {{/if}} {{!--* if end --}}
+
+
+<h1>Hobbies</h1>
+<ul>
+    {{#each hobbies}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+
+{{!-- end tag --}}
+{{/layout}}
