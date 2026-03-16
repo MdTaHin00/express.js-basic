@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+     <h1>
+        <!-- dynamic value call -->
+        <%= title %>
+     </h1>
+
+     <!-- array of object call -->
+      <ul>
+         <!-- forEach start -->
+        <% products.forEach(product =>{   %>
+            <li>
+                <%= product.name  %> - 
+                $<%=   product.price %> - 
+                <%= product.description  %>
+            </li>
+         <!-- forEach end -->
+          <%  } )  %>
+      </ul>
+</body>
+</html>

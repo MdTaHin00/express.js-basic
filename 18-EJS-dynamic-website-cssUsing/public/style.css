@@ -1,0 +1,12 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: aquamarine;
+}
+
+h2{
+    color: red;
+    text-decoration: underline;
+}
+h4{
+    color: blue;
+}
