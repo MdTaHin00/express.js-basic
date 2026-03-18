@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+     <h2>Upload Image</h2>
+     <form id="uploadFrom" action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload</button>
+     </form>
+
+
+     <!--* displaying image -->
+      <h2>Uploaded Image</h2>
+      <img id="uploadedImage" src="" alt="Uploaded Image" width="400">
+
+
+
+      <!--! javaScript Code  -->
+      <!--* Show image -->
+      <script>
+         document.getElementById('uploadFrom').addEventListener("submit", async (e)=>{
+             e.preventDefault();
+            //* file a from data ki aca check
+            const fromData = new FormData(e.target);
+            //   /upload -> index.js file path
+            const response = await fetch("/upload",{
+                // upload path method
+                method:"POST",
+                // body a file data transfer
+                body:fromData
+            })
+            // fetch data ka json data ta convet
+            const result = await response.json();
+              // file -> image file 
+            if(result.file){
+                   //   /uploads/dynamic image name 
+                document.getElementById("uploadedImage").src=`/uploads/${result.file}`
+            }
+         })
+      </script>
+</body>
+</html>
