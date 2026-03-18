@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const multer = require('multer')
 const path = require('path')
+const fs = require('fs')
 
 
 //!  multer file storage
@@ -17,7 +18,10 @@ const storage = multer.diskStorage({
     }
 })
 // multer call kola
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage,limits:{
+    // 2 mb size 
+    fileSize: 2 * 1024 * 1024
+}})
 
 
 //!  middleware 
@@ -48,6 +52,21 @@ app.post("/upload", upload.single('image'),(req, res) => {
    })
 })
  
+//!  delete image 
+app.delete('/delete/:file',(req,res)=>{
+       //*  uploads -> ja folder a image aca
+       //*  req.params.file -> dynamic file name 
+    const filePath = path.join(process.cwd(),"uploads",req.params.file)
+
+    // delete image
+    fs.unlink(filePath,(err)=>{
+        if(err){
+            return res.status(404).json({error:"File Uploaded Failed!"})
+        }
+        res.status(200).json({message:"File Deleted SuccessFully"})
+    })
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
