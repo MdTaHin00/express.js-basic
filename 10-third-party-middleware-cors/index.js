@@ -14,10 +14,12 @@ const cors = require('cors')
 
 
 //!  cors -> frontend & backend connection
+// aka dik origin:['http://localhost:3750/','ww.codebd.com']
 app.use(cors({
     origin:['http://localhost:3750/'], // main url
     credentials:true,
     allowedHeaders:['content-type','Authorization'],
+    // ki ki method kas kolva
     methods:['GET','POST','PUT','DELETE']
 }))
 
