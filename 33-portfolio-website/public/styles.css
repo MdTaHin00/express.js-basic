@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+}
+header nav a{
+    text-decoration: none;
+    font-size: xx-large;
+    color: white;
+    margin-left: 20px ;
+    padding-top: 10px;
+}
+main{
+    background-color: aquamarine;
+    padding:50px 70px ;
+    border-radius: 50px;
+}
